@@ -46,8 +46,8 @@ class NetEnv(object):
         self.mask = np.ones(self.num_clusters)
 
     def get_state(self, mask):
-        s = np.concatenate((self.capacitys_cur * mask, self.capacitys_tar * mask, self.reqs * mask,
-                            self.features_tar * mask, self.features_cur * mask, self.speed_cur * mask))
+        s = np.concatenate((self.reqs, self.speed_cur, self.capacitys_cur,
+                            self.capacitys_tar, self.features_cur, self.features_tar))
         return s
 
     # 单步状态改变: G变、C变、capacity变、feature变、speed变、mask变
